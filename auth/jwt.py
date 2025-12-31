@@ -4,7 +4,7 @@ from config.settings import SECRET_KEY
 
 def create_token(user_id):
     payload = {
-        "sub": str(user_id),  # MUST be string
+        "sub": str(user_id),
         "exp": datetime.utcnow() + timedelta(hours=1)
     }
     return jwt.encode(payload, SECRET_KEY, algorithm="HS256")
