@@ -2,6 +2,12 @@ import falcon
 from middleware.auth import AuthMiddleware
 from auth.routes import RegisterResource, LoginResource
 from resources.task import TaskResource
+import logging
+
+logging.basicConfig(
+    level=logging.INFO, 
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+)
 
 app = falcon.App(middleware=[AuthMiddleware()])
 
